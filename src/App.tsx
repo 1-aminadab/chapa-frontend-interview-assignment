@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './index.css' // <- Make sure Tailwind directives are in this file
+import './index.css'
 
 function App() {
   const [count, setCount] = useState(0)
