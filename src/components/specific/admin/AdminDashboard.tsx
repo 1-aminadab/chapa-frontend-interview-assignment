@@ -5,9 +5,9 @@ import {
   FiToggleLeft,
   FiToggleRight,
 } from 'react-icons/fi';
-import { useAppStore } from '../../store/appStore';
-import { Button } from '../common/Button';
-import { UserRole } from '../../types';
+import { useAppStore } from '../../../store/appStore';
+import { Button } from '../../common/Button';
+import { UserRole } from '../../../types';
 import {
   LineChart,
   Line,
@@ -134,11 +134,10 @@ export const AdminDashboard: React.FC = () => {
                   </td>
                   <td className="px-4 py-3">
                     <span
-                      className={`inline-flex px-2 py-1 rounded-full text-xs font-medium ${
-                        user.isActive
+                      className={`inline-flex px-2 py-1 rounded-full text-xs font-medium ${user.isActive
                           ? 'bg-green-100 text-green-800 dark:bg-green-400/10 dark:text-green-300'
                           : 'bg-red-100 text-red-800 dark:bg-red-400/10 dark:text-red-300'
-                      }`}
+                        }`}
                     >
                       {user.isActive ? 'Active' : 'Inactive'}
                     </span>

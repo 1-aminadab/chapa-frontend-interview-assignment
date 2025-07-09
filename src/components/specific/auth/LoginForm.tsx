@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { FiUser, FiShield, FiStar, FiArrowRight, FiMail, FiLock, FiKey } from 'react-icons/fi';
-import { UserRole } from '../../types';
-import { useAuthStore } from '../../store/authStore';
-import { Button } from '../common/Button';
+import { UserRole } from '../../../types';
+import { useAuthStore } from '../../../store/authStore';
+import { Button } from '../../common/Button';
 import { motion } from 'framer-motion';
 import clsx from 'clsx';
 import { fail } from 'assert';
@@ -33,8 +33,8 @@ export const LoginForm: React.FC = () => {
   const [selectedRole, setSelectedRole] = useState<UserRole>(UserRole.USER);
 
   const [form, setForm] = useState({
-    email: 'admin@chapa.com', // for dev testing
-    password: 'admin123',
+    email: 'user@example.com', // for dev testing
+    password: 'userpass',
     twoFA: '',
     accessCode: '',
   });
@@ -73,7 +73,7 @@ export const LoginForm: React.FC = () => {
     if (!validate()) return;
     setIsLoading(true);
     try {
-      await login(selectedRole, form.email);
+      await login(selectedRole, form.email, form.password);
     } catch (error) {
       const errorMessage = 'Login failed. Please check your credentials.';
       setErrors((prev) => ({ ...prev, failed: errorMessage }));

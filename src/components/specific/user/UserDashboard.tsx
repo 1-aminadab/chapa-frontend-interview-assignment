@@ -6,11 +6,11 @@ import {
   FiArrowUpRight
 } from "react-icons/fi";
 import { motion } from "framer-motion";
-import { useAuthStore } from "../../store/authStore";
-import { useAppStore } from "../../store/appStore";
-import { TransactionType, TransactionStatus } from "../../types";
-import Pagination from "../common/Pagination";
-import { Card } from "../common/Card";
+import { useAuthStore } from "../../../store/authStore";
+import { useAppStore } from "../../../store/appStore";
+import { TransactionType, TransactionStatus } from "../../../types";
+import Pagination from "../../common/Pagination";
+import { Card } from "../../common/Card";
 
 export const UserDashboard: React.FC = () => {
   const { currentUser, updateUser } = useAuthStore();

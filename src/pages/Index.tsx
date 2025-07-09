@@ -1,11 +1,11 @@
 
 import React from 'react';
 import { useAuthStore } from '../store/authStore';
-import { LoginForm } from '../components/auth/LoginForm';
+import { LoginForm } from '../components/specific/auth/LoginForm';
 import { Layout } from '../components/layout/Layout';
-import { UserDashboard } from '../components/user/UserDashboard';
-import { AdminDashboard } from '../components/admin/AdminDashboard';
-import { SuperAdminDashboard } from '../components/admin/SuperAdminDashboard';
+import { UserDashboard } from '../components/specific/user/UserDashboard';
+import { AdminDashboard } from '../components/specific/admin/AdminDashboard';
+import { SuperAdminDashboard } from '../components/specific/admin/SuperAdminDashboard';
 import { UserRole } from '../types';
 import '../styles/globals.css';
 

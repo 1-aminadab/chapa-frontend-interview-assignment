@@ -25,6 +25,7 @@ export interface User {
   isActive: boolean;
   walletBalance: number;
   joinedDate: string;
+  password?: string; // Optional for login purposes
 }
 
 export interface Transaction {
@@ -48,9 +49,10 @@ export interface SystemStats {
 export interface AuthState {
   currentUser: User | null;
   isAuthenticated: boolean;
-  login: (role: UserRole, email: string) => Promise<void>;
+  login: (role: UserRole, email: string, password: string) => Promise<void>;
   logout: () => void;
   updateUser: (updatedUser: User) => void;  // Added updateUser here
+
 }
 
 export interface AppState {

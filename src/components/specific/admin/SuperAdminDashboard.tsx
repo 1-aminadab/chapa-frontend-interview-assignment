@@ -5,9 +5,9 @@ import {
   FiBarChart,
   FiTrendingUp,
 } from 'react-icons/fi';
-import { useAppStore } from '../../store/appStore';
-import { Button } from '../common/Button';
-import { UserRole } from '../../types';
+import { useAppStore } from '../../../store/appStore';
+import { Button } from '../../common/Button';
+import { UserRole } from '../../../types';
 import { AdminDashboard } from './AdminDashboard';
 
 export const SuperAdminDashboard: React.FC = () => {

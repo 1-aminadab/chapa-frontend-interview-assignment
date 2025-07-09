@@ -3,6 +3,7 @@ import { FiLogOut, FiUser, FiSun, FiMoon, FiMenu, FiX } from "react-icons/fi";
 import { useAuthStore } from "../../store/authStore";
 import { useTheme } from "../../contexts/ThemeContext";
 import { Button } from "../common/Button";
+import chapaLogo from "@/assets/images/chapa-logo.png";
 
 export const Header: React.FC = () => {
   const { currentUser, logout } = useAuthStore();
@@ -16,9 +17,7 @@ export const Header: React.FC = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo / Title */}
           <div className="flex items-center">
-            <h1 className="text-xl font-bold text-gray-900 dark:text-white">
-              Chapa Dashboard
-            </h1>
+            <img src={chapaLogo} alt="Chapa Dashboard" className="w-20 w-auto" />
           </div>
 
           {/* User info: always visible, even on mobile */}
