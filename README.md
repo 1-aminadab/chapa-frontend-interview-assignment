@@ -82,12 +82,14 @@ src/
 ├── types/          # TypeScript interfaces & types
 🚀 Getting Started
 
-1. Clone the repository
+## 1. Clone the repository
 git clone git@github.com:1-aminadab/chapa-frontend-interview-assignment.git
 cd chapa-role-dash
-2. Install dependencies
+
+## Install dependencies
+
 yarn
-3. Start development server
+## 3. Start development server
 yarn dev
 Visit the app at: http://localhost:8081
 
