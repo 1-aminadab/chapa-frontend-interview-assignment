@@ -1,69 +1,55 @@
-# React + TypeScript + Vite
+# Chapa Frontend Interview Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a role-based dashboard Single Page Application (SPA) built with React for a fictional Payment Service Provider platform as part of the Chapa Frontend Developer (React) test task.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📋 Overview
 
-## Expanding the ESLint configuration
+This project simulates a real-world dashboard with role-based access control for three types of users:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. **User**
+2. **Admin**
+3. **Super Admin**
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+The application uses mock data and simulates API calls with tools like `setTimeout`. No real backend is required.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🚀 Features
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 👤 User Dashboard
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- 💰 Displays mock wallet balance
+- 📄 Shows a list of recent transactions (hardcoded)
+- 💸 Form to initiate a transaction (with fake async feedback)
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 🛠️ Admin Dashboard
+
+- 👥 Displays a mocked list of users
+- 🔄 Ability to activate/deactivate users (toggle state)
+- 📊 Summary of user payments (table or chart)
+
+### 🧙‍♂️ Super Admin Dashboard
+
+- ✅ Includes all Admin features
+- ➕ Form to add/remove Admins (mocked)
+- 📈 System-wide stats: total payments, number of active users, etc.
+
+---
+
+## 🛠️ Tech Stack
+
+- **React** (or Next.js)
+- **TypeScript**
+- **Tailwind CSS** for styling
+- **React Context** for global state (or your preferred state manager)
+- **Mock API simulation** using:
+  - `setTimeout`
+  - OR [`Mock Service Worker (MSW)`](https://mswjs.io/)
+  - OR `json-server`
+
+---
+
+## 📁 Folder Structure
+

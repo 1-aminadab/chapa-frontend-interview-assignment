@@ -1,10 +1,10 @@
 
 import React from 'react';
 import { FiUsers, FiDollarSign, FiToggleLeft, FiToggleRight } from 'react-icons/fi';
-import { useAppStore } from '@/store/appStore';
-import { Card } from '@/components/common/Card';
-import { Button } from '@/components/common/Button';
-import { UserRole } from '@/types';
+import { useAppStore } from '../../store/appStore';
+import { Card } from '../common/Card';
+import { Button } from '../common/Button';
+import { UserRole } from '../../types';
 
 export const AdminDashboard: React.FC = () => {
   const { users, updateUserStatus } = useAppStore();

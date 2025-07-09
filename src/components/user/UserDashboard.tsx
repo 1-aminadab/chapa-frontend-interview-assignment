@@ -1,11 +1,12 @@
 
 import React, { useState } from 'react';
 import { FiDollarSign, FiSend, FiTrendingUp, FiClock } from 'react-icons/fi';
-import { useAuthStore } from '@/store/authStore';
-import { useAppStore } from '@/store/appStore';
-import { Card } from '@/components/common/Card';
-import { Button } from '@/components/common/Button';
-import { TransactionType, TransactionStatus } from '@/types';
+import { useAuthStore } from '../../store/authStore';
+import { useAppStore } from '../../store/appStore';
+import { Card } from '../common/Card';
+import { Button } from '../common/Button';
+import { TransactionType, TransactionStatus } from '../../types';
+
 export const UserDashboard: React.FC = () => {
   const { currentUser } = useAuthStore();
   const { transactions, addTransaction } = useAppStore();

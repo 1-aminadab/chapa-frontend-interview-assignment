@@ -1,9 +1,9 @@
 
 import React, { useState } from 'react';
 import { FiUser, FiShield, FiStar } from 'react-icons/fi';
-import { UserRole } from '@/types';
-import { useAuthStore } from '@/store/authStore';
-import { Button } from '@/components/common/Button';
+import { UserRole } from '../../types';
+import { useAuthStore } from '../../store/authStore';
+import { Button } from '../common/Button';
 
 export const LoginForm: React.FC = () => {
   const [selectedRole, setSelectedRole] = useState<UserRole>(UserRole.USER);
