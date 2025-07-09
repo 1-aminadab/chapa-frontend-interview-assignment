@@ -83,9 +83,6 @@ src/
 🚀 Getting Started
 
 1. Clone the repository
-bash
-Copy
-Edit
 git clone git@github.com:1-aminadab/chapa-frontend-interview-assignment.git
 cd chapa-role-dash
 2. Install dependencies
