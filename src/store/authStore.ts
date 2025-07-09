@@ -1,7 +1,7 @@
-
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { AuthState, User, UserRole } from '../types';
+import { Toaster } from 'sonner';
 
 // Mock users for different roles
 const mockUsers: Record<UserRole, User> = {
@@ -39,21 +39,37 @@ export const useAuthStore = create<AuthState>()(
     (set) => ({
       currentUser: null,
       isAuthenticated: false,
-      login: async (role: UserRole) => {
-        // Simulate API call delay
+
+      // Updated login function to accept role and email
+      login: async (role: UserRole, email: string) => {
         await new Promise(resolve => setTimeout(resolve, 1000));
-        
+
         const user = mockUsers[role];
-        set({
-          currentUser: user,
-          isAuthenticated: true
-        });
+
+        // Check if email matches the expected one for that role
+        if (user && user.email === email) {
+          set({
+            currentUser: user,
+            isAuthenticated: true
+          });
+        } else {
+          // Optional: throw or return false
+          
+          throw new Error('Invalid email for selected role.');
+        }
       },
+
       logout: () => {
         set({
           currentUser: null,
           isAuthenticated: false
         });
+      },
+
+      updateUser: (updatedUser: User) => {
+        set((state) => ({
+          currentUser: state.currentUser ? { ...state.currentUser, ...updatedUser } : updatedUser
+        }));
       }
     }),
     {

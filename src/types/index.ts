@@ -1,4 +1,3 @@
-
 export enum UserRole {
   USER = 'user',
   ADMIN = 'admin',
@@ -49,8 +48,9 @@ export interface SystemStats {
 export interface AuthState {
   currentUser: User | null;
   isAuthenticated: boolean;
-  login: (role: UserRole) => Promise<void>;
+  login: (role: UserRole, email: string) => Promise<void>;
   logout: () => void;
+  updateUser: (updatedUser: User) => void;  // Added updateUser here
 }
 
 export interface AppState {
@@ -61,4 +61,5 @@ export interface AppState {
   addTransaction: (transaction: Omit<Transaction, 'id' | 'date'>) => void;
   addAdmin: (userData: Omit<User, 'id' | 'joinedDate'>) => void;
   removeAdmin: (userId: string) => void;
+  updateUser: (updatedUser: User) => void;  // Added updateUser here as well
 }
