@@ -18,6 +18,9 @@ export default {
 			}
 		},
 		extend: {
+			boxShadow: {
+				glow: '0 0 20px rgba(255, 255, 255, 0.15)',
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -84,11 +87,17 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+				moveBg: {
+					'0%': { transform: 'translateX(0) translateY(0)' },
+					'100%': { transform: 'translateX(50%) translateY(50%)' },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'move-bg': 'moveBg 15s linear infinite',
+
 			}
 		}
 	},
