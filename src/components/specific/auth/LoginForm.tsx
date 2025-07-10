@@ -1,11 +1,20 @@
 import React, { useState } from 'react';
-import { FiUser, FiShield, FiStar, FiArrowRight, FiMail, FiLock, FiKey } from 'react-icons/fi';
+import {
+  FiUser,
+  FiShield,
+  FiStar,
+  FiArrowRight,
+  FiMail,
+  FiLock,
+  FiKey,
+  FiEye,
+  FiEyeOff,
+} from 'react-icons/fi';
 import { UserRole } from '../../../types';
 import { useAuthStore } from '../../../store/authStore';
 import { Button } from '../../common/Button';
 import { motion } from 'framer-motion';
 import clsx from 'clsx';
-import { fail } from 'assert';
 
 const roles = [
   {
@@ -31,9 +40,11 @@ const roles = [
 export const LoginForm: React.FC = () => {
   const { login } = useAuthStore();
   const [selectedRole, setSelectedRole] = useState<UserRole>(UserRole.USER);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showAccessCode, setShowAccessCode] = useState(false);
 
   const [form, setForm] = useState({
-    email: 'user@example.com', // for dev testing
+    email: 'user@example.com',
     password: 'userpass',
     twoFA: '',
     accessCode: '',
@@ -142,13 +153,19 @@ export const LoginForm: React.FC = () => {
           {/* Password */}
           <div className="relative">
             <input
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               placeholder="Password"
               value={form.password}
               onChange={(e) => setForm({ ...form, password: e.target.value })}
-              className="w-full bg-black/30 text-white rounded-md pl-10 pr-4 py-3 border border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
+              className="w-full bg-black/30 text-white rounded-md pl-10 pr-10 py-3 border border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
             />
             <FiLock className="absolute left-3 top-3.5 text-gray-400" />
+            <div
+              onClick={() => setShowPassword((prev) => !prev)}
+              className="absolute right-3 top-3.5 cursor-pointer text-gray-400 hover:text-white"
+            >
+              {showPassword ? <FiEyeOff /> : <FiEye />}
+            </div>
             {errors.password && <p className="text-red-400 text-sm mt-1">{errors.password}</p>}
           </div>
 
@@ -168,17 +185,23 @@ export const LoginForm: React.FC = () => {
             </div>
           )}
 
-          {/* Access Code (Only Super Admin) */}
+          {/* Access Code (Super Admin) */}
           {selectedRole === UserRole.SUPER_ADMIN && (
             <div className="relative">
               <input
-                type="password"
+                type={showAccessCode ? 'text' : 'password'}
                 placeholder="Access Code"
                 value={form.accessCode}
                 onChange={(e) => setForm({ ...form, accessCode: e.target.value })}
-                className="w-full bg-black/30 text-white rounded-md pl-10 pr-4 py-3 border border-white/10 focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-gray-400"
+                className="w-full bg-black/30 text-white rounded-md pl-10 pr-10 py-3 border border-white/10 focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-gray-400"
               />
               <FiKey className="absolute left-3 top-3.5 text-purple-300" />
+              <div
+                onClick={() => setShowAccessCode((prev) => !prev)}
+                className="absolute right-3 top-3.5 cursor-pointer text-purple-300 hover:text-white"
+              >
+                {showAccessCode ? <FiEyeOff /> : <FiEye />}
+              </div>
               {errors.accessCode && <p className="text-red-400 text-sm mt-1">{errors.accessCode}</p>}
             </div>
           )}
@@ -198,7 +221,7 @@ export const LoginForm: React.FC = () => {
               </>
             )}
           </Button>
-          {errors.failed && <p className="text-red-400 text-sm mt-1">{errors.failed}</p>}
+          {errors.failed && <p className="text-red-400 text-sm mt-2 text-center">{errors.failed}</p>}
         </motion.div>
       </motion.div>
     </div>
