@@ -17,7 +17,7 @@ export const Header: React.FC = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo / Title */}
           <div className="flex items-center">
-            <img src={chapaLogo} alt="Chapa Dashboard" className="w-20 w-auto" />
+            <img src={chapaLogo} alt="Chapa Dashboard" className="w-20" />
           </div>
 
           {/* User info: always visible, even on mobile */}
